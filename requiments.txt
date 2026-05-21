@@ -1,1 +1,22 @@
-
+Dependencias estándar (Python)
+os
+pathlib
+datetime
+typing
+argparse
+re
+shutil
+dataclasses
+Dependencias externas (instalables con pip)
+opencv-python (cv2) — cámara/detección facial (Haar cascades) y manejo de frames.
+numpy (numpy) — operaciones numéricas y manejo de arreglos.
+Pillow (PIL: Image, ImageTk, ImageDraw) — conversión/dibujo/redimensionado de imágenes para la UI.
+mysql-connector-python (mysql.connector) — conexión y consultas a MySQL.
+tensorflow (tensorflow as tf) — carga/uso del modelo CNN (.keras) para predicción.
+scikit-learn (sklearn.preprocessing.LabelEncoder) — LabelEncoder para mapear índices clases.
+Dependencias “del sistema” / entorno
+Tkinter (tkinter) — interfaz gráfica (normalmente viene con Python, pero depende de la instalación del SO).
+MySQL Server — requerido por la capa RepositorioMySQL y el esquema 01_esquema_mysql.sql.
+Archivos/modelos requeridos en runtime (si se quiere reconocer, no solo capturar)
+face_cnn.keras — modelo entrenado.
+label_encoder.npy — clases para el encoder.
