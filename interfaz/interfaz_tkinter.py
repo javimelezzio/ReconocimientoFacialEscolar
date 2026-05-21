@@ -400,3 +400,134 @@ tk.Label(
 
     pady=(0, 10)
   )
+# =========================================================
+# CARD RESULTADOS
+# =========================================================
+
+card_res = RoundedCard(
+    right
+)
+
+card_res.grid(
+
+    row=1,
+
+    column=0,
+
+    sticky="ew",
+
+    pady=(0, 12)
+)
+
+card_res.content.grid_columnconfigure(
+    0,
+    weight=1
+)
+
+top_row = tk.Frame(
+    card_res.content,
+    bg=CARD
+)
+
+top_row.grid(
+
+    row=0,
+
+    column=0,
+
+    sticky="ew"
+)
+
+top_row.grid_columnconfigure(
+    0,
+    weight=1
+)
+
+lbl_nombre = tk.Label(
+
+    top_row,
+
+    text="---",
+
+    bg=CARD,
+
+    fg=FG,
+
+    font=(
+        "Segoe UI",
+        16,
+        "bold"
+    )
+)
+
+lbl_nombre.grid(
+
+    row=0,
+
+    column=0,
+
+    sticky="w"
+)
+
+lbl_badge = tk.Label(
+
+    top_row,
+
+    text="---",
+
+    bg=_status_color("---"),
+
+    fg="#0b1224",
+
+    font=FONT_TXT_B,
+
+    padx=10,
+
+    pady=4
+)
+
+lbl_badge.grid(
+
+    row=0,
+
+    column=1,
+
+    sticky="e"
+)
+
+grid_info = tk.Frame(
+    card_res.content,
+    bg=CARD
+)
+
+grid_info.grid(
+
+    row=1,
+
+    column=0,
+
+    sticky="ew",
+
+    pady=(10, 0)
+)
+
+grid_info.grid_columnconfigure(
+    1,
+    weight=1
+)
+
+var_matricula = tk.StringVar(
+    value="---"
+)
+
+var_inscrito = tk.StringVar(
+    value="---"
+)
+
+var_carrera = tk.StringVar(
+    value="---"
+)
+
+var_conf = tk.StringVar(
+    value="0.00"
+)
