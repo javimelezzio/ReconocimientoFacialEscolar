@@ -1,1 +1,38 @@
+CREATE DATABASE IF NOT EXISTS reconocimiento_escolar
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
 
+USE reconocimiento_escolar;
+
+-- Tabla 1: Alumnos
+CREATE TABLE IF NOT EXISTS alumnos (
+  matricula VARCHAR(32) PRIMARY KEY,
+  nombre    VARCHAR(120) NOT NULL,
+  inscrito  ENUM('SI','NO') NOT NULL DEFAULT 'SI',
+  carrera   VARCHAR(120) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP 
+    ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Tabla 2: Imágenes tomadas por alumno
+CREATE TABLE IF NOT EXISTS imagenes_alumno (
+  id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  matricula VARCHAR(32) NOT NULL,
+  ruta_imagen VARCHAR(255) NOT NULL,
+  capturada_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  ancho INT NULL,
+  alto INT NULL,
+  notas VARCHAR(255) NULL,
+
+  CONSTRAINT fk_imagenes_alumno_alumnos
+    FOREIGN KEY (matricula)
+    REFERENCES alumnos(matricula)
+    ON DELETE CASCADE
+);
+
+CREATE INDEX idx_imagenes_alumno_matricula
+ON imagenes_alumno(matricula);
+
+CREATE INDEX idx_imagenes_alumno_capturada_en
+ON imagenes_alumno(capturada_en);
