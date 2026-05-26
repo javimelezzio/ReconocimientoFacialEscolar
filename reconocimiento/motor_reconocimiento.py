@@ -518,7 +518,6 @@ class MotorReconocimientoFacial:
                 "la imagen en disco."
             )
 
-        # Registrar en BD
         self.repo.registrar_imagen_de_alumno(
 
             matricula=matricula,
