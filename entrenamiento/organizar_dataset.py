@@ -210,11 +210,6 @@ def main(mover: bool):
             "\nModo usado: COPIAR"
         )
 
-
-# =========================
-# ENTRYPOINT
-# =========================
-
 if __name__ == "__main__":
 
     ap = argparse.ArgumentParser(
